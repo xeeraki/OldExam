@@ -52,16 +52,20 @@ public class Point {
            return p;
         }
         public static Point internalPoint(Point[] points,double radius){
+            Point sum = points[0];
             int pointInside = 0;
             for(int i = 0; i < points.length; i++){
-                if(points[i].getX()*points[i].getX()+points[i].getY()*points[i].getY() <=radius*radius){
-                    pointInside=i;
+                double px = points[i].getX();
+                double py = points[i].getY();
+                if(px*px + py*py<=radius*radius){
                     pointInside++;
                 }
                 Point[] p = new Point[pointInside];
-                for
+                for(int j = 0; j < p.length; j++){
+                    sum = points[j];
+                }
             }
-            return;
+            return sum;
         }
         public static void main(String[] args){
             Point[] points = {new Point(1,2),
@@ -69,11 +73,12 @@ public class Point {
                               new Point(5,2)};
 
             Point point = new Point (1,1);
-            Point radius = new Point(3,5);
+            double r = 7;
             Point nearestPoint = nearestPoint(points,point);
-            Point internalPoint= internalPoint(points,radius);
+            Point internalPoint= internalPoint(points,7);
             System.out.println(nearestPoint+"   " +internalPoint);
         }
 
     }
+
 
