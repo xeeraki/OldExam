@@ -14,19 +14,6 @@ import java.util.Arrays;
          to determine the smallest of the rectangles in the array that are yellow.
   */
 public class Rectangle {
-    public static void main(String[] args) {
-        Rectangle[] rect = {new Rectangle(2, 3, "yellow"),
-                new Rectangle(3, 5, "red"),
-                new Rectangle(1, 1, "yellow"),
-                new Rectangle(2, 2, "red"),
-                new Rectangle(3, 4, "red"),
-                new Rectangle(2, 8, "red"),
-                new Rectangle(5, 2, "yellow")};
-
-        System.out.println("The smallest rectangle with yellow color is :" + minRectangle(rect));
-        Rectangle[] rectangles = selectRectangles(rect, "yellow");
-        System.out.println(Arrays.toString(rectangles));
-    }
 
     // the lengths of the rectangle’s sides
     private double length;
@@ -85,6 +72,19 @@ public class Rectangle {
         return Rect;
     }
 
+    public static void main(String[] args) {
+        Rectangle[] rect = {new Rectangle(2, 3, "yellow"),
+                new Rectangle(3, 5, "red"),
+                new Rectangle(1, 1, "yellow"),
+                new Rectangle(2, 2, "red"),
+                new Rectangle(3, 4, "red"),
+                new Rectangle(2, 8, "red"),
+                new Rectangle(5, 2, "yellow")};
+
+        System.out.println("The smallest rectangle with yellow color is :" + minRectangle(rect));
+        Rectangle[] rectangles = selectRectangles(rect, "yellow");
+        System.out.println(Arrays.toString(rectangles));
+    }
 
 }
 
