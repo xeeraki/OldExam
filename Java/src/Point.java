@@ -46,7 +46,7 @@ public class Point {
 
     public String toString() {
         String s = "";
-        for(int i = 0; i< s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             s = "(" + this.x + "," + this.y + ")";
         }
         return s;
@@ -61,47 +61,31 @@ public class Point {
         }
         return p;
     }
-/*
-    public static Point[] internalPoints(Point[] points, double r) {
-// the number of points in the circle
-        int countInternalPoints = 0;
-        for (Point p : points)
-            if (p.getX() * p.getX() + p.getY() * p.getY() < r * r)
-                countInternalPoints++;
-// the points that are in the circle
-        Point[] internalPoints = new Point[countInternalPoints];
-        int pos = 0;
-        for (Point p : points)
-            if (p.getX() * p.getX() + p.getY() * p.getY() < r * r)
-                internalPoints[pos++] = p;
-        return internalPoints;
-    }
 
-  */
-        public static Point[] internalPoint(Point[] points,double radius){
-            Point sum = points[0];
-            int countPoints = 0;
-            for(int i = 0; i < points.length; i++) {
-                double xp = points[i].getX();
-                double yp = points[i].getY();
-                // points are inside the circle if d^2 <= r^2
-                // d^2 = (Xp-Xc)^2 + (Yp-Yc)^2
-                // Xp and Yp is the point that should be checked
-                // Xc and Xc is the point center (orgin)
-                if (xp * xp + yp * yp <= radius * radius) {
-                    countPoints++;
-                }
-                int companionVar = 0;
-                Point[] pointsInside = new Point[countPoints];
-                for (int j = 0; j < countPoints; j++)
-                    pointsInside[companionVar] = points[j];
-                              //sum = points[j];
-                        companionVar++;
+    public static Point[] internalPoints(Point[] points, double radius) {
 
+        int countPoints = 0;
+        for (int i = 0; i < points.length; i++) {
+            double xp = points[i].getX();
+            double yp = points[i].getY();
+            // points are inside the circle if d^2 <= r^2
+            // d^2 = (Xp-Xc)^2 + (Yp-Yc)^2
+            // Xp and Yp is the point that should be checked
+            // Xc and Xc is the point center (orgin)
+            // Xc and Yc are 0 you end up with d^2 = (Xp-Xc)^2 + (Yp-Yc)^2
+            if (xp * xp + yp * yp <= radius * radius) {
+                countPoints++;
             }
-                return pointsInside;
-
         }
+        int companionVar = 0;
+        Point[] pointsInside = new Point[countPoints];
+        for (int j = 0; j < countPoints; j++) {
+            pointsInside[companionVar] = points[j];
+            companionVar++;
+        }
+        return pointsInside;
+
+    }
 
     public static void main(String[] args) {
         Point[] points = {new Point(1, 2),
@@ -111,7 +95,7 @@ public class Point {
         Point point = new Point(1, 1);
         double r = 7;
         Point nearestPoint = nearestPoint(points, point);
-        Point[] internalPoints = internalPoints(points,7);
+        Point[] internalPoints = internalPoints(points, 7);
         System.out.println(nearestPoint + "   " + Arrays.toString(internalPoints));
     }
 
