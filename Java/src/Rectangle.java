@@ -3,6 +3,16 @@ import java.util.Arrays;
 /**
  * Created by shafai on 2017-03-20.
  */
+/*
+    a) A static method, minRectangle, accepts an array of rectangles (objects of type Rectangle)
+         and returns the rectangle with the smallest area. Create this method.
+    b) A static method, selectRectangles, accepts an array of rectangles
+         (objects of type Rectangle) and a color (an object of type String),
+         and returns those rectangles (as an array) that are of the given color. Create this method.
+    c) Create an array of rectangles (objects of type Rectangle).
+         Then use the methods selectRectangles and minRectangle
+         to determine the smallest of the rectangles in the array that are yellow.
+  */
 public class Rectangle {
     public static void main(String[] args) {
         Rectangle[] rect = {new Rectangle(2, 3, "yellow"),
@@ -45,16 +55,6 @@ public class Rectangle {
 
     }
 
-/*
-    a) A static method, minRectangle, accepts an array of rectangles (objects of type Rectangle)
-         and returns the rectangle with the smallest area. Create this method.
-    b) A static method, selectRectangles, accepts an array of rectangles
-         (objects of type Rectangle) and a color (an object of type String),
-         and returns those rectangles (as an array) that are of the given color. Create this method.
-    c) Create an array of rectangles (objects of type Rectangle).
-         Then use the methods selectRectangles and minRectangle
-         to determine the smallest of the rectangles in the array that are yellow.
-  */
 
     public static Rectangle minRectangle(Rectangle[] rect) {
 
