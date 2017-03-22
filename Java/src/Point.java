@@ -46,9 +46,9 @@ public class Point {
 
     public String toString() {
         String s = "";
-        for (int i = 0; i < s.length(); i++) {
-            s = "(" + this.x + "," + this.y + ")";
-        }
+        //for (int i = 0; i < s.length(); i++) {
+            s = "("+this.getX() +"," +this.getY()+")";
+
         return s;
     }
 
@@ -91,11 +91,12 @@ public class Point {
         Point[] points = {new Point(1, 2),
                 new Point(2, 3),
                 new Point(5, 2)};
-
+                new Point(12,13); // points outside the circle
         Point point = new Point(1, 1);
         double r = 7;
         Point nearestPoint = nearestPoint(points, point);
         Point[] internalPoints = internalPoints(points, 7);
+
         System.out.println(nearestPoint + "   " + Arrays.toString(internalPoints));
     }
 
