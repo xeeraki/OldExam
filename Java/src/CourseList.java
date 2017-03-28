@@ -28,8 +28,8 @@ public class CourseList {
             }
         }
         Course[] newCourse = new Course[courseCount];
-        for (int i = 0; i <courseCount; i++){
-            courses[courseCount-1] = courses[i];
+        for (int j = 0; j <courseCount; j++){
+            courses[courseCount-1] = courses[j];
             courseCount--;
         }
         return newCourse;
@@ -38,7 +38,7 @@ public class CourseList {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i< courses.length; i++){
+        for(int i = 0; i<courses.length; i++){
             sb.append(courses[i]);
             sb.append("\n");
         }

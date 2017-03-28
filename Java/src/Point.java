@@ -1,18 +1,19 @@
-import java.util.Arrays;
+    import java.util.Arrays;
 
-/**
- * Created by shafai on 2017-03-18.
- * <p>
+/*
  * a) A static method, nearestPoint , accepts an array of points (objects of type Point )
  * and one point (an object of type
  * Point ), and returns that point in the array which is
  * closest to the given point. Create that method.
+ * <p>
  * b) A circle in the plane, with radius r and midpoint at the origin,
  * is given by the following equation:
  * x 2 + y 2 = r 2
+ * <p>
  * A static method, internalPoints , accepts an array of points (objects of type Point )
  * and the radius of a circle, and returns
  * those points (in an array) that are inside the given circle. Create that method.
+ * <p>
  * c) Create an array of points (objects of type Point ) and a point (an object of type Point ).
  * Establish also the radius of the
  * circle.
@@ -45,11 +46,10 @@ public class Point {
     }
 
     public String toString() {
-        String s = "";
-        //for (int i = 0; i < s.length(); i++) {
-            s = "("+this.getX() +"," +this.getY()+")";
 
-        return s;
+        return "(" + this.getX() + "," + this.getY() + ")";
+
+
     }
 
     public static Point nearestPoint(Point[] points, Point point) {
@@ -77,11 +77,15 @@ public class Point {
                 countPoints++;
             }
         }
-        int companionVar = 0;
+
         Point[] pointsInside = new Point[countPoints];
-        for (int j = 0; j < countPoints; j++) {
-            pointsInside[companionVar] = points[j];
-            companionVar++;
+        int companionVar = 0;
+        for (int j = 0; j < points.length; j++) {
+            double xp = points[j].getX();
+            double yp = points[j].getY();
+            if (xp * xp + yp * yp <= radius * radius)
+            pointsInside[companionVar++] = points[j];
+            //companionVar++; stackoverflow
         }
         return pointsInside;
 
@@ -89,13 +93,14 @@ public class Point {
 
     public static void main(String[] args) {
         Point[] points = {new Point(1, 2),
-                new Point(2, 3),
-                new Point(5, 2)};
-                new Point(12,13); // points outside the circle
+                          new Point(19, 29),
+                          new Point(5, 2),
+                          // points outside the circle
+                          new Point(13, 14)};
         Point point = new Point(1, 1);
         double r = 7;
         Point nearestPoint = nearestPoint(points, point);
-        Point[] internalPoints = internalPoints(points, 7);
+        Point[] internalPoints = internalPoints(points, r);
 
         System.out.println(nearestPoint + "   " + Arrays.toString(internalPoints));
     }

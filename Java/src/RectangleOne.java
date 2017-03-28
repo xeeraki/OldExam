@@ -13,7 +13,7 @@ import java.util.Arrays;
          Then use the methods selectRectangles and minRectangle
          to determine the smallest of the rectangles in the array that are yellow.
   */
-public class Rectangle {
+public class RectangleOne {
 
     // the lengths of the rectangle’s sides
     private double length;
@@ -22,7 +22,7 @@ public class Rectangle {
     // the rectangle’s color
     private String color;
 
-    public Rectangle(double length, double width, String color) {
+    public RectangleOne(double length, double width, String color) {
         this.length = length;
         this.width = width;
         this.color = color;
@@ -42,10 +42,9 @@ public class Rectangle {
 
     }
 
+    public static RectangleOne minRectangle(RectangleOne[] rect) {
 
-    public static Rectangle minRectangle(Rectangle[] rect) {
-
-        Rectangle min = rect[0];
+        RectangleOne min = rect[0];
         for (int i = 0; i < rect.length; i++) {
             if (rect[i].area() < min.area()) {
                 min = rect[i];
@@ -55,7 +54,7 @@ public class Rectangle {
 
     }
 
-    public static Rectangle[] selectRectangles(Rectangle[] rect, String color) {
+    public static RectangleOne[] selectRectangles(RectangleOne[] rect, String color) {
         int countRect = 0;
         for (int i = 0; i < rect.length; i++) {
             if (rect[i].getColor().equals(color))
@@ -63,26 +62,28 @@ public class Rectangle {
 
         }
 
-        Rectangle[] Rect = new Rectangle[countRect];
+        RectangleOne[] Rect = new RectangleOne[countRect];
         int companionVar = 0;
-        for (int j = 0; j < countRect; j++) {
-            Rect[companionVar] = rect[j];
-            companionVar++;
+        for (int j = 0; j < rect.length; j++) {
+            if(rect[j].getColor().equals(color))
+            Rect[companionVar++] = rect[j];
+            //companionVar++; stackoverflow question
+
         }
         return Rect;
     }
 
     public static void main(String[] args) {
-        Rectangle[] rect = {new Rectangle(2, 3, "yellow"),
-                new Rectangle(3, 5, "red"),
-                new Rectangle(1, 1, "yellow"),
-                new Rectangle(2, 2, "red"),
-                new Rectangle(3, 4, "red"),
-                new Rectangle(2, 8, "red"),
-                new Rectangle(5, 2, "yellow")};
+        RectangleOne[] rect = {new RectangleOne(2, 3, "yellow"),
+                new RectangleOne(3, 5, "red"),
+                new RectangleOne(1, 1, "yellow"),
+                new RectangleOne(2, 2, "red"),
+                new RectangleOne(3, 4, "red"),
+                new RectangleOne(2, 8, "red"),
+                new RectangleOne(5, 2, "yellow")};
 
         System.out.println("The smallest rectangle with yellow color is :" + minRectangle(rect));
-        Rectangle[] rectangles = selectRectangles(rect, "yellow");
+        RectangleOne[] rectangles = selectRectangles(rect, "yellow");
         System.out.println(Arrays.toString(rectangles));
     }
 
