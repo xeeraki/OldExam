@@ -20,25 +20,22 @@ public class CourseList {
         courses[courseCount] = course;
         courseCount++;
     }
-    public Course[] remove(Course course) {
-        for(int i = 0; i < courses.length; i++) {
-            if (courses[i].equals(course)) {
-                courses[i] = null;
-                courseCount--;
+    public void remove (Course course) {
+        int courseIndex = -1;
+        for (int pos = 1; pos < courseCount; pos++)
+            if (courses[pos].equals(course)) {
+                courseIndex = pos;
+                break;
             }
+        if (courseIndex != -1) {
+            for (int pos = courseIndex; pos < courseCount - 1; pos++)
+                courses[pos] = courses[pos + 1];
+            courses[courseCount - 1] = null;
         }
-        Course[] newCourse = new Course[courseCount];
-        for (int j = 0; j <courseCount; j++){
-            courses[courseCount-1] = courses[j];
-            courseCount--;
-        }
-        return newCourse;
-
     }
-
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i<courses.length; i++){
+        for(int i = 0; i<courseCount; i++){
             sb.append(courses[i]);
             sb.append("\n");
         }

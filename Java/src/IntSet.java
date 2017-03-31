@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by shafai on 2017-03-28.
  */
@@ -11,7 +15,6 @@ public class IntSet {
             this.elements[pos] = elements[pos];
         }
     }
-
 
 
     // toString returns a string representation of the set
@@ -39,42 +42,69 @@ public class IntSet {
         return false;
     }
 
+    /*
 
-    // intersection returns a set which contains the elements
-    // in the set that are also members of the given set
-    public IntSet intersection(IntSet set) {
-        // code is missing here
-        // use the method contains
-        int members = 0;
-        for (int i = 0; i < elements.length; i++) {
-            if (set.contains(elements[i]))
-                members++;
-        }
+        // intersection returns a set which contains the elements
+        // in the set that are also members of the given set
+        public IntSet intersection(IntSet set) {
+            // code is missing here
+            // use the method contains
+            int members = 0;
+            for (int i = 0; i < elements.length; i++) {
+                if (set.contains(elements[i]))
+                    members++;
+            }
 
-        int[] newMembers = new int [members];
-        int position = 0;
-            for(int i = 0; i < elements.length; i++){
-                if(set.contains(elements[i]))
-                newMembers[position++] = this.elements[i];
+            int[] newMembers = new int[members];
+            int position = 0;
+            for (int i = 0; i < elements.length; i++) {
+                if (set.contains(elements[i]))
+                    newMembers[position++] = this.elements[i];
                 //position++ this is a question for stackoverflow
             }
-       return new IntSet(newMembers);
+            return new IntSet(newMembers);
+        }
+        */
+    public static Set<Integer> intersection(Set<Integer> a, Set<Integer> b) {
+
+        Set<Integer> result = new HashSet<>();
+        for (Integer element : a) {
+            if (b.contains(element)) {
+                result.add(element);
+            }
+        }
+        return result;
     }
 
-    //Some instances of the class IntSet are created and used like this:
-    public static void main(String[] args) {
-    int[] numbers1 = {9, 1, 4, 3, 7, 5};
-    IntSet set1 = new IntSet(numbers1);
-    int[] numbers2 = {4, 2, 8, 5, 7};
-    IntSet set2 = new IntSet(numbers2);
-        System.out.println(set1);
-        System.out.println(set2);
+    /*
+        //Some instances of the class IntSet are created and used like this:
+        public static void main(String[] args) {
+            int[] numbers1 = {9, 1, 4, 3, 7, 5};
+            IntSet set1 = new IntSet(numbers1);
+            int[] numbers2 = {4, 2, 8, 5, 7};
+            IntSet set2 = new IntSet(numbers2);
+            System.out.println(set1);
+            System.out.println(set2);
 
-    IntSet set = set1.intersection(set2);
-        System.out.println(set);
-    //When this code fragment is executed, the following printout is produced:
-    //{9, 1, 4, 3, 7, 5}
-    //{4, 2, 8, 5, 7}
-    //{4, 7, 5}
+            IntSet set = set1.intersection(set2);
+            System.out.println(set);
+            //When this code fragment is executed, the following printout is produced:
+            //{9, 1, 4, 3, 7, 5}
+            //{4, 2, 8, 5, 7}
+            //{4, 7, 5}
+        }
+    }
+    */
+    public static void main(String[] args) {
+        Integer[] numbers1 = {9, 1, 4, 3, 7, 5};
+        Set<Integer> set1 = new HashSet<Integer>(Arrays.asList(numbers1));
+        Integer[] numbers2 = {4, 2, 8, 5, 7};
+        Set<Integer> set2 = new HashSet<Integer>(Arrays.asList(numbers2));
+
+        System.out.println(Arrays.toString(numbers1));
+        System.out.println(Arrays.toString(numbers2));
+
+        Set<Integer> set = intersection(set1, set2);
+        System.out.println(Arrays.toString(set.toArray()));
     }
 }
