@@ -40,14 +40,14 @@ class Rectangle implements SizeComparable<Rectangle> {
 
 }
 
-class CharSequence implements SizeComparable<CharSequence> {
+class CharSequense implements SizeComparable<CharSequense> {
     public static final int CAPACITY = 1000;
     // the number of characters in the character sequence
     private int charCount;
     // characters in the character sequence
     private char[] characters = new char[CAPACITY];
 
-    public CharSequence(char... characters) {
+    public CharSequense(char... characters) {
         for (int pos = 0; pos < characters.length; pos++)
             this.characters[pos] = characters[pos];
         charCount = characters.length;
@@ -61,7 +61,7 @@ class CharSequence implements SizeComparable<CharSequence> {
     }
 
     @Override
-    public int sizeCompare(CharSequence o) {
+    public int sizeCompare(CharSequense o) {
 
         if(this.characters.length < o.characters.length)
             return -1;
@@ -98,13 +98,13 @@ class Selector {
 
 
     public static void main(String[] args){
-    CharSequence[] sequences = {
-            new CharSequence ('1', '1','1'),
-            new CharSequence ('1', '+','2','=','3'),
-            new CharSequence ('a', 'b', 'c','d'),
-            new CharSequence ('9', '9','9'),
-            new CharSequence ('0', '0','0', '0') };
-        CharSequence seq = Selector.oneOfMany (sequences);
+    CharSequense[] sequences = {
+            new CharSequense('1', '1','1'),
+            new CharSequense('1', '+','2','=','3'),
+            new CharSequense('a', 'b', 'c','d'),
+            new CharSequense('9', '9','9'),
+            new CharSequense('0', '0','0', '0') };
+        CharSequense seq = Selector.oneOfMany (sequences);
         System.out.println (seq);
 
     }

@@ -1,20 +1,20 @@
     import java.util.Arrays;
 
 /*
- * a) A static method, nearestPoint , accepts an array of points (objects of type Point )
+ * a) A static method, nearestPoint , accepts an array of points (objects of type Point2 )
  * and one point (an object of type
- * Point ), and returns that point in the array which is
+ * Point2 ), and returns that point in the array which is
  * closest to the given point. Create that method.
  * <p>
  * b) A circle in the plane, with radius r and midpoint at the origin,
  * is given by the following equation:
  * x 2 + y 2 = r 2
  * <p>
- * A static method, internalPoints , accepts an array of points (objects of type Point )
+ * A static method, internalPoints , accepts an array of points (objects of type Point2 )
  * and the radius of a circle, and returns
  * those points (in an array) that are inside the given circle. Create that method.
  * <p>
- * c) Create an array of points (objects of type Point ) and a point (an object of type Point ).
+ * c) Create an array of points (objects of type Point2 ) and a point (an object of type Point2 ).
  * Establish also the radius of the
  * circle.
  * Use the method nearestPoint to determine the point in the array that is

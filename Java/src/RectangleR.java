@@ -4,16 +4,16 @@ import java.util.Arrays;
  * Created by shafai on 2017-03-20.
  */
 /*
-    a) A static method, minRectangle, accepts an array of rectangles (objects of type Rectangle)
+    a) A static method, minRectangle, accepts an array of rectangles (objects of type RectangleR)
          and returns the rectangle with the smallest area. Create this method.
     b) A static method, selectRectangles, accepts an array of rectangles
-         (objects of type Rectangle) and a color (an object of type String),
+         (objects of type RectangleR) and a color (an object of type String),
          and returns those rectangles (as an array) that are of the given color. Create this method.
-    c) Create an array of rectangles (objects of type Rectangle).
+    c) Create an array of rectangles (objects of type RectangleR).
          Then use the methods selectRectangles and minRectangle
          to determine the smallest of the rectangles in the array that are yellow.
   */
-public class RectangleOne {
+public class RectangleR {
 
     // the lengths of the rectangle’s sides
     private double length;
@@ -22,7 +22,7 @@ public class RectangleOne {
     // the rectangle’s color
     private String color;
 
-    public RectangleOne(double length, double width, String color) {
+    public RectangleR(double length, double width, String color) {
         this.length = length;
         this.width = width;
         this.color = color;
@@ -42,9 +42,9 @@ public class RectangleOne {
 
     }
 
-    public static RectangleOne minRectangle(RectangleOne[] rect) {
+    public static RectangleR minRectangle(RectangleR[] rect) {
 
-        RectangleOne min = rect[0];
+        RectangleR min = rect[0];
         for (int i = 0; i < rect.length; i++) {
             if (rect[i].area() < min.area()) {
                 min = rect[i];
@@ -54,7 +54,7 @@ public class RectangleOne {
 
     }
 
-    public static RectangleOne[] selectRectangles(RectangleOne[] rect, String color) {
+    public static RectangleR[] selectRectangles(RectangleR[] rect, String color) {
         int countRect = 0;
         for (int i = 0; i < rect.length; i++) {
             if (rect[i].getColor().equals(color))
@@ -62,7 +62,7 @@ public class RectangleOne {
 
         }
 
-        RectangleOne[] Rect = new RectangleOne[countRect];
+        RectangleR[] Rect = new RectangleR[countRect];
         int companionVar = 0;
         for (int j = 0; j < rect.length; j++) {
             if(rect[j].getColor().equals(color))
@@ -74,16 +74,16 @@ public class RectangleOne {
     }
 
     public static void main(String[] args) {
-        RectangleOne[] rect = {new RectangleOne(2, 3, "yellow"),
-                new RectangleOne(3, 5, "red"),
-                new RectangleOne(1, 1, "yellow"),
-                new RectangleOne(2, 2, "red"),
-                new RectangleOne(3, 4, "red"),
-                new RectangleOne(2, 8, "red"),
-                new RectangleOne(5, 2, "yellow")};
+        RectangleR[] rect = {new RectangleR(2, 3, "yellow"),
+                new RectangleR(3, 5, "red"),
+                new RectangleR(1, 1, "yellow"),
+                new RectangleR(2, 2, "red"),
+                new RectangleR(3, 4, "red"),
+                new RectangleR(2, 8, "red"),
+                new RectangleR(5, 2, "yellow")};
 
         System.out.println("The smallest rectangle with yellow color is :" + minRectangle(rect));
-        RectangleOne[] rectangles = selectRectangles(rect, "yellow");
+        RectangleR[] rectangles = selectRectangles(rect, "yellow");
         System.out.println(Arrays.toString(rectangles));
     }
 

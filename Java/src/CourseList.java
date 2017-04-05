@@ -23,7 +23,7 @@ public class CourseList {
     public void remove (Course course) {
         int courseIndex = -1;
         for (int pos = 1; pos < courseCount; pos++)
-            if (courses[pos].equals(course)) {
+            if (courses[pos].equals(course)){
                 courseIndex = pos;
                 break;
             }

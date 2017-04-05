@@ -48,12 +48,12 @@ public class Person {
 
         public static void main(String[] args){
             Person[] persons = {
-                    new Person("Adam",1986),
-                    new Person("Adila",1986),
-                    new Person("Lovisa",2012),
-                    new Person("Latifa",1996),
-                    new Person("Abdulla",1991),
-                    new Person("Khatima",1966),
+                    new Person("Ad",1986),
+                    new Person("Adi",1986),
+                    new Person("Lovi",2012),
+                    new Person("Lati",1996),
+                    new Person("Abdu",1991),
+                    new Person("Khati",1966),
                     };
         double AverageAge = averAge(persons);
         Person youngest = youngestPerson(persons);
