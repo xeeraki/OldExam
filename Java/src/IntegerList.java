@@ -1,47 +1,53 @@
-import java.util.ArrayList;
-/**
- * Created by shafai on 2017-04-04.
- */
-public class IntegerList {
+    import java.util.ArrayList;
+    import java.util.List;
 
-    private int value;
+    /**
+     * Created by shafai on 2017-04-04.
+     */
+    public class IntegerList {
 
-    public IntegerList(int value){
-        this.value = value;
-    }
+        private int value;
 
-    public boolean lessThan(IntegerList p){
-
-        return this.value < p.value;
-    }
-    public String toString(){
-
-        return "<"+this.value +">";
-    }
-    public static IntegerList[] filter(IntegerList[] v , IntegerList p){
-        ArrayList<IntegerList> w = new ArrayList<>();
-        for(IntegerList i:w){
-            if(i.lessThan(p)){
-                w.add(i);
-            }
+        public IntegerList(int value) {
+            this.value = value;
         }
-        return w.toArray(new IntegerList[w.size()]);
-    }
-    public static void main(String[] args){
-        IntegerList[] INT = {new IntegerList(100),
-                new IntegerList(10),
-                new IntegerList(50),
-                new IntegerList(110),
-                new IntegerList(40),
 
-        };
-        IntegerList one = new IntegerList(90);
+        public boolean lessThan(IntegerList p) {
 
-        IntegerList[] w = filter(INT, one);
-        for(int i = 0; i < w.length; i++)
-            System.out.print( (w[i]));
+            return this.value < p.value;
+        }
+
+        public String toString() {
+
+            return "<" + this.value + ">";
+        }
+
+        public static IntegerList[] filter(IntegerList[] v, IntegerList p) {
+            ArrayList<IntegerList> w = new ArrayList<>();
+            for (IntegerList i : v) {
+                if (i.lessThan(p)) {
+                    w.add(i);
+                }
+            }
+            IntegerList[] result = new IntegerList[w.size()];
+            return w.toArray(result);
+        }
+
+        public static void main(String[] args) {
+            IntegerList[] INT = {new IntegerList(100),
+                    new IntegerList(10),
+                    new IntegerList(50),
+                    new IntegerList(110),
+                    new IntegerList(40),
+
+            };
+            IntegerList one = new IntegerList(90);
+
+            IntegerList[] w = filter(INT, one);
+            for (int i = 0; i < w.length; i++)
+                System.out.print((w[i]));
+        }
     }
-}
 
 
 

@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
 /**
  * Created by shafai on 2017-03-28.
  */
@@ -15,8 +14,6 @@ public class IntSet {
             this.elements[pos] = elements[pos];
         }
     }
-
-
     // toString returns a string representation of the set
     public String toString() {
         String s = "{";
@@ -27,10 +24,8 @@ public class IntSet {
                 s = s + elements[pos] + ", ";
             s = s + elements[elements.length - 1] + "}";
         }
-
         return s;
     }
-
     // contains returns true if the given element
     // is a member of the set, and false otherwise.
     public boolean contains(int element) {
@@ -42,7 +37,7 @@ public class IntSet {
         return false;
     }
 
-    /*
+
 
         // intersection returns a set which contains the elements
         // in the set that are also members of the given set
@@ -64,7 +59,7 @@ public class IntSet {
             }
             return new IntSet(newMembers);
         }
-        */
+  /*
     public static Set<Integer> intersection(Set<Integer> a, Set<Integer> b) {
 
         Set<Integer> result = new HashSet<>();
@@ -76,7 +71,7 @@ public class IntSet {
         return result;
     }
 
-    /*
+    */
         //Some instances of the class IntSet are created and used like this:
         public static void main(String[] args) {
             int[] numbers1 = {9, 1, 4, 3, 7, 5};
@@ -94,7 +89,7 @@ public class IntSet {
             //{4, 7, 5}
         }
     }
-    */
+    /*
     public static void main(String[] args) {
         Integer[] numbers1 = {9, 1, 4, 3, 7, 5};
         Set<Integer> set1 = new HashSet<Integer>(Arrays.asList(numbers1));
@@ -107,4 +102,4 @@ public class IntSet {
         Set<Integer> set = intersection(set1, set2);
         System.out.println(Arrays.toString(set.toArray()));
     }
-}
+    */
